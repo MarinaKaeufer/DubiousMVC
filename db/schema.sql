@@ -1,3 +1,5 @@
-DROP DATABASE IF EXISTS museum_db;
+DROP DATABASE IF EXISTS dubious_mvc;
 
-CREATE DATABASE museum_db;
+CREATE DATABASE dubious_mvc;
+
+USE dubious_mvc;

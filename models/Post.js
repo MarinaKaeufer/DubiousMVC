@@ -9,33 +9,34 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     content: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.TEXT,
+      allowNull: true
     },
     user_id: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       references: {
-          model: 'User',
-          key: 'id'
-      },
+        model: 'user',
+        key: 'id'
+      }
     },
-    date: {
+    created: {
       type: DataTypes.DATE,
        allowNull: false
+       
    }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'post'
   }
 );
 
