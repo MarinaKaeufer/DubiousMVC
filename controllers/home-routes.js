@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['filename', 'description'],
+          attributes: ['user_id', 'created', 'content']
         },
       ],
     });
@@ -21,6 +21,18 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       posts,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET new post form
+router.get('/newPost', async (req, res) => {
+  try {
+    res.render('new-post', {
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
