@@ -51,11 +51,9 @@ router.get('/post/:id', withAuth, async (req, res) => {
           model: Comment,
           attributes: [
             'id',
-            'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
+            'user_id',
+            'content',
+            'created'
           ],
         },
       ],
