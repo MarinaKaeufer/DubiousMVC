@@ -5,11 +5,14 @@
     const post_content = document.querySelector('#post-content').value.trim();
   
     if (post_title && post_content) {
+      console.log(`Sending new post data..${post_title} ${post_content}`);
       const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({ post_title, post_content }),
         headers: { 'Content-Type': 'application/json' },
       });
+
+      console.log(`response...`);
   
       if (response.ok) {
         document.location.replace('/');
@@ -21,6 +24,6 @@
 
   
   document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    .querySelector('#create-post')
+    .addEventListener('submit', createFormFormHandler);
   

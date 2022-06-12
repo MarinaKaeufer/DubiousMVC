@@ -8,12 +8,14 @@ router.post('/',withAuth, async (req, res) => {
       const dbPostData = await Post.create({
         title: req.body.post_title,
         content: req.body.post_content,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        created: '2022-06-12'
       });
-
     res.status(200).json(dbPostData);
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
   });
+
+  module.exports = router;
