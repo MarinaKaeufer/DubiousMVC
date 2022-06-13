@@ -1,15 +1,15 @@
   const createFormFormHandler = async (event) => {
     event.preventDefault();
   
-    const comment_content = document.querySelector('#comment-content').value.trim();
+    const content = document.querySelector('#comment-content').value.trim();
     // TODO Get post id
     var url =  window.location.toString();
     var id = url.substring(url.lastIndexOf('/') + 1);
     
-    if (comment_content) {
-      const response = await fetch('/api/posts', {
+    if (content) {
+      const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ content: comment_content, comment_post_id: id }),
+        body: JSON.stringify({ comment_content: content, comment_post_id: id }),
         headers: { 'Content-Type': 'application/json' },
       });
   
