@@ -2,7 +2,7 @@
     event.preventDefault();
   
     const content = document.querySelector('#comment-content').value.trim();
-    // TODO Get post id
+    
     var url =  window.location.toString();
     var id = url.substring(url.lastIndexOf('/') + 1);
     
@@ -14,7 +14,7 @@
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace(`/post/${id}`);
       } else {
         alert('Failed to create comment.');
       }
