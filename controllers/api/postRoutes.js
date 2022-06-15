@@ -39,4 +39,29 @@ router.post('/',withAuth, async (req, res) => {
   });
 
 
+  //Edit post 
+  router.put('/:id', withAuth, (req, res) => {
+    Post.update({
+      title: req.body.title,
+      content: req.body.content
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(post => {
+        if (!post) {
+          res.status(404).json({ message: 'No record found with this id!' });
+          return;
+        }
+        res.json(post);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
   module.exports = router;

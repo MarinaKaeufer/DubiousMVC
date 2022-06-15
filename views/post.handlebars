@@ -5,6 +5,7 @@
   <h4>Date Created: {{post.created}}</h4>
   <h4>User: {{post.user.username}}</h4>
   <button id="delete">Delete</button>
+  <a href="/post/edit/{{post.id}}">Edit</a>
   <section class="flex-row justify-center">
     {{#each post.comments as |comment|}}
     {{> comment-details}}
