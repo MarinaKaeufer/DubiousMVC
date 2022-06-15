@@ -18,4 +18,25 @@ router.post('/',withAuth, async (req, res) => {
     }
   });
 
+  //Deletes post 
+  router.delete('/:id', withAuth, (req, res) => {
+    Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(post => {
+        if (!post) {
+          res.status(404).json({ message: 'No record found with this id!' });
+          return;
+        }
+        res.json(post);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
   module.exports = router;

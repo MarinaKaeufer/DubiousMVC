@@ -21,4 +21,24 @@ router.post('/',withAuth, async (req, res) => {
   });
 
 
+ //Deletes comment 
+ router.delete('/:id', withAuth, (req, res) => {
+  Comment.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(comment => {
+      if (!comment) {
+        res.status(404).json({ message: 'No record found with this id!' });
+        return;
+      }
+      res.json(comment);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}); 
+
 module.exports = router;
