@@ -1,16 +1,7 @@
 <section class="card">
   <a href="/post/{{id}}">
-    <header>{{title}}</header>
-    <h4>{{content}}</h4>
-    <h4>Date Created: {{created}}</h4>
+    <header><h2>{{title}}</h2></header>
+    <p class="content">{{content}}</p>
+    <p>Date Created: {{format_date created}}</p>
   </a>
 </section>
-
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{content}}</p>
-    <p class=""">{{created}}</p>
-  </div>
-</div>

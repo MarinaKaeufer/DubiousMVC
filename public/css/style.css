@@ -43,10 +43,13 @@ main {
 
 aside {
   flex: 0;
-  background-color: var(--tertiary);
   padding: 80px;
   text-align: left;
   color: var(--light);
+}
+
+.navbar {
+  margin-bottom: 20px;
 }
 
 nav {
@@ -116,7 +119,7 @@ img {
 }
 
 .login-card {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px 0px;;
   flex: 0 0 50%;
   max-width: 50%;
   padding: 5px;
@@ -124,7 +127,7 @@ img {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #577a7c;
+  background-color: #6c757d;
   color: var(--light);
 }
 
@@ -133,7 +136,7 @@ img {
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
-  background-color: var(--tertiary);
+  background-color: #6c757d;
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
@@ -161,4 +164,8 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+.content {
+  font-size: 22px;
 }

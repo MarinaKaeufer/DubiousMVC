@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    expires: 1 * 10 * 1000
+    expires: 5 * 60 * 1000
   },
   resave: false,
   saveUninitialized: true,

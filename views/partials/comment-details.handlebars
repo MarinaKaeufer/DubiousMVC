@@ -1,8 +1,8 @@
-<section class="card">
+<section class="card comment-card">
     <header>{{content}}</header>
     <div class="card-body">
       <p>By: {{user.username}}</p>
-      <p>Date Created: {{created}}</p>
+      <p>Date Created: {{format_date created}}</p>
       <p id="id" style="display: none">{{id}}</p>
     </div>
   <button class="delete-comment">Delete</button>

@@ -1,16 +1,25 @@
 <section class="container">
   
-  <header>{{post.title}}</header>
-  <h4>{{post.content}}</h4>
-  <h4>Date Created: {{post.created}}</h4>
-  <h4>User: {{post.user.username}}</h4>
-  <button id="delete">Delete</button>
-  <a href="/post/edit/{{post.id}}">Edit</a>
+  {{!-- Show Post Details --}}
+  <section class="card">
+      <header><h2>{{post.title}}</h2></header>
+      <p class="content">{{post.content}}</p>
+      <p>User: {{post.user.username}}</p>
+      <p>Date Created: {{format_date post.created}}</p>
+      <button id="delete">Delete</button>
+      <a href="/post/edit/{{post.id}}"><button>Edit</button></a>
+  </section>
+
+
+  {{!-- Show Comments --}}
   <section class="flex-row justify-center">
     {{#each post.comments as |comment|}}
     {{> comment-details}}
     {{/each}}
   </section>
+
+  {{!-- Create new Comment --}}
+  <h4>Leave a Comment</h4>
   <form id="create-comment">
     <input type="text" id="comment-content" name="comment-content" placeholder="Comment Text"/>
     <button type="submit">Submit</button>
