@@ -1,19 +1,20 @@
+// Import the Sequelize constructor from the library
 const Sequelize = require('sequelize');
+
 require('dotenv').config();
 
-var database = process.env.DB_NAME || 'dubious_mvc'
+// Create connection to our database, pass in your MySQL information for username and password
+let sequelize;
 
-var sequelize = ""
-
-if (process.env.DATABASE_URL) {
-    sequelize = new Sequelize(database)
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: 'localhost',
+    dialect: 'mysql',
+    port: 3306
+  });
 }
-else {
-    sequelize = new Sequelize(database, process.env.DB_USER || 'user',process.env.DB_PASSWORD || 'password', {
-        dialect: 'mysql'
-    });
-}
-
 
 
 // const sequelize = new Sequelize(
